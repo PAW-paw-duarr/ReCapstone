@@ -1,0 +1,43 @@
+name: capstoneLegacy
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      - DOMAIN=${DOMAIN}
+      - SECRET_KEY=${SECRET_KEY}
+      - MONGO_URL=${MONGO_URL}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - S3_API_KEY=${S3_API_KEY}
+      - S3_API_SECRET=${S3_API_SECRET}
+      - S3_BUCKET_NAME=${S3_BUCKET_NAME}
+      - S3_REGION=${S3_REGION}
+      - S3_ENDPOINT=${S3_ENDPOINT}
+    ports:
+      - '3000:3000'
+    restart: unless-stopped
+
+  mongo:
+    image: mongo
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_DBNAME}
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "mongosh", "--quiet", "127.0.0.1/admin", "-u", "root", "-p", "password", "--eval", "quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  mongo-data:
