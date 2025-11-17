@@ -1,8 +1,9 @@
-name: capstoneLegacy
+name: recapstone
 
 services:
   app:
     image: ghcr.io/paw-paw-duarr/recapstone:latest
+    container_name: recapstone-app
     depends_on:
       mongo:
         condition: service_healthy
@@ -23,6 +24,7 @@ services:
 
   mongo:
     image: mongo
+    container_name: recapstone-mongo
     volumes:
       - mongo-data:/data/db
     environment:
