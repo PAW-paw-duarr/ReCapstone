@@ -2,9 +2,7 @@ name: capstoneLegacy
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/paw-paw-duarr/recapstone:latest
     depends_on:
       mongo:
         condition: service_healthy
@@ -20,7 +18,7 @@ services:
       - S3_REGION=${S3_REGION}
       - S3_ENDPOINT=${S3_ENDPOINT}
     ports:
-      - '3000:3000'
+      - "3000:3000"
     restart: unless-stopped
 
   mongo:
@@ -33,7 +31,19 @@ services:
       - MONGO_INITDB_DATABASE=${MONGO_DBNAME}
     restart: unless-stopped
     healthcheck:
-      test: [ "CMD", "mongosh", "--quiet", "127.0.0.1/admin", "-u", "root", "-p", "password", "--eval", "quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)" ]
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "--quiet",
+          "127.0.0.1/admin",
+          "-u",
+          "root",
+          "-p",
+          "password",
+          "--eval",
+          "quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)",
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
