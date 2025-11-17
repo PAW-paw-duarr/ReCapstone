@@ -1,3 +1,6 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/PAW-paw-duarr/backend.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/PAW-paw-duarr/frontend.git
