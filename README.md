@@ -43,7 +43,7 @@ Ensure you have **Node.js** and **npm** installed.
 
 1. **Clone the project**
    ```bash
-   git clone [https://github.com/PAW-paw-duarr/recapstone.git](https://github.com/PAW-paw-duarr/recapstone.git)
+   git clone https://github.com/PAW-paw-duarr/recapstone.git
    cd recapstone
 
 2.  **Setup Backend**
