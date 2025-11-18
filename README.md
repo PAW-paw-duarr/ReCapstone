@@ -14,7 +14,7 @@
 
 Watch a full walkthrough of the platform features:
 
-[![Watch the video](https://img.youtube.com/vi/oBJp7W39-qA/maxresdefault.jpg)](https://youtu.be/oBJp7W39-qA)
+[![Watch the video](https://img.youtube.com/vi/n8DOjwxSa9Y/maxresdefault.jpg)](https://youtu.be/n8DOjwxSa9Y)
 
 > *Click the image above to watch the demo on YouTube.*
 
