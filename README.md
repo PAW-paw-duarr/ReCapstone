@@ -47,6 +47,7 @@ Ensure you have **Node.js** and **npm** installed.
    cd recapstone
 
 2.  **Setup Backend**
+   
     Create a `.env` file in the `backend` directory based on your configuration.
 
     ```bash
@@ -55,7 +56,8 @@ Ensure you have **Node.js** and **npm** installed.
     npm run dev
     ```
 
-3.  **Setup Frontend**
+4.  **Setup Frontend**
+   
     Open a new terminal.
 
     ```bash
