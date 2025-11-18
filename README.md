@@ -70,7 +70,7 @@ The frontend will typically run on `http://localhost:3001` and the backend on th
 
 The project is containerized for easy deployment. Refer to the compose file for service orchestration.
 
-  * **Docker:** See [compose.yaml](https://www.google.com/search?q=./compose.yaml) for configuration.
+  * **Docker:** See [compose.yaml](./compose.yaml) for configuration.
 
 ## API Reference
 
